@@ -1,20 +1,22 @@
 
+import Items.Weapon;
+import Person.Hero;
+import Printer.Printer;
+
 import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String name = in.nextLine();
-        Protagonist protagonist = new Protagonist(name);
+        Hero protagonist = new Hero(name);
         int tempexp;
         int counter=0;
         do{
              tempexp=in.nextInt();
-             Protagonist.EXPGAIN(tempexp);
-             Item randweap = new Weapon();
+             Hero.EXPGAIN(tempexp);
+             Weapon randweap = new Weapon(protagonist.getLVL());
              Printer.foundItem(randweap);
-             System.out.println(counter);
-             break;
         }while (tempexp!=0);
     }
 }
